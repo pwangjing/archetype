@@ -24,7 +24,6 @@ This project helps to create a multi-module maven project. It contains the follo
  
 #Usage 
 ##parent project:
----------------------------
 mvn archetype:generate -DarchetypeGroupId=com.archetype -DarchetypeArtifactId=mvn-archetype-parent -DarchetypeVersion=1.0 -DgroupId=<project group id> -DartifactId=&lt;project artifact Id&gt;
 
 ##executable-jar: 
