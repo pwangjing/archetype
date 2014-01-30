@@ -4,6 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>1.0.0.RC1</version>
+    </parent>
+
 	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
 	<name>${project_name}</name>
@@ -24,7 +30,12 @@
 	</modules>
 
 	<repositories>
-
+		<repository>
+			<id>Central</id>
+			<name>maven central repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+		</repository>
 
 		<repository>
 			<id>maven2-repository.cloudera.com</id>
@@ -64,7 +75,14 @@
             <id>checker-framework-repo</id>
             <url>http://types.cs.washington.edu/m2-repo</url>
         </repository>
-
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -84,6 +102,15 @@
 			<name>LevonK Repository</name>
 			<url>http://raw.github.com/levonk/pub-maven-repo/master/release</url>
 		</pluginRepository>
+		<pluginRepository>
+            <id>spring-snapshots</id>
+            <url>http://repo.spring.io/snapshot</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+        </pluginRepository>
+  
 	</pluginRepositories>
 
 	<dependencies>
@@ -116,13 +143,13 @@
 			<version>${guava.version}</version>
 		</dependency>
 
-		<dependency>
-			<!-- Apache -->
+
+			<!-- Apache
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commonslang3.version}</version>
 		</dependency>
-
+         -->
 		<!-- Unit Testing Dependencies -->
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -169,6 +196,12 @@
 			<groupId>ch.qos.logback.contrib</groupId>
 			<artifactId>logback-jackson</artifactId>
 			<version>${logback-jackson.version}</version>
+			<exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 
 		<dependency>
@@ -176,7 +209,7 @@
 				you can use others though, it doesn't have to be jackson -->
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
+			<version>${jackson1.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -204,25 +237,136 @@
 	-->
 	<dependencyManagement>
 		<dependencies>
+
 			<!-- Add Cofoja Design By Contract lib when available -->
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-				<version>${spring.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-
-			<dependency>
+            <dependency>
 				<groupId>org.slfj</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slfj.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <!-- Starters use SLF4J -->
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-actuator</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-amqp</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-aop</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-actuator</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-batch</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-integration</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-jdbc</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-jetty</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-logging</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-log4j</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-mobile</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-redis</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-security</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-shell-remote</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-test</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-tomcat</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-web</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-websocket</artifactId>
+                                <version>${spring-boot.version}</version>
+                        </dependency>
 
 			<!-- Code Generation Dependencies -->
 			<dependency>
@@ -252,20 +396,20 @@
 	<build>
 		<plugins>
 			<!-- General Settings -->
+            <!-- Code Coverage -->
+            <!-- Don't forget to add a Jenkins
+                "Post-build Actions->Folders or files
+                containing JaCoCo XML reports:"
+                    **/target/site/jacoco/jacoco*.xml
+              -->
 			<plugin>
-				<!-- Code Coverage -->
-				<!-- Don't forget to add a Jenkins
-					"Post-build Actions->Folders or files
-					containing JaCoCo XML reports:"
-						**/target/site/jacoco/jacoco*.xml
-				-->
+
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>${jacoco.version}</version>
 				<configuration>
                             <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-                            <!-- Sets the output directory for the code coverage report. -->
-                            <outputDirectory>${project.build.directory}/jacoco-ut</outputDirectory>
+                             <outputDirectory>${project.build.directory}/jacoco-ut</outputDirectory>
                         </configuration>
 				<executions>
 					<execution>
@@ -494,7 +638,7 @@
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>${cobertura.version}</version>
 				<configuration>
-                    <check></check>
+                    <check/>
 					<formats>
 						<format>xml</format>
 					</formats>
@@ -651,6 +795,57 @@
 					<artifactId>maven-android-plugin</artifactId>
 					<version>${android.version}</version>
 				</plugin>
+				<plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                	    <archive>
+                    	    <manifest>
+                        	    <mainClass>${start-class}</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+				<plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                    </configuration>
+                </plugin>
+				<plugin>
+                	<groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>2.1.7</version>
+                    <executions>
+                    	<execution>
+                        	<goals>
+                            	<goal>revision</goal>
+                            </goals>
+                        </execution>
+                        </executions>
+                        <configuration>
+                                <verbose>true</verbose>
+                                <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+                                <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                                <generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
+                        </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                        <layout>ZIP</layout>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -717,7 +912,7 @@
 		<antrun.version>1.7</antrun.version>
 		<codequality.version>1.0.9</codequality.version>
 		<checkers.version>1.7.2</checkers.version> <!-- as of 2014-01-22 -->
-
+ 		<spring-boot.version>1.0.0.RC1</spring-boot.version>
 		<checkstyle.version>2.9.1</checkstyle.version>
 		<cobertura.version>2.5.2</cobertura.version>
 		<commonslang3.version>3.2.1</commonslang3.version>
@@ -730,7 +925,7 @@
 		<findbugs.version>2.5.2</findbugs.version>
 		<findbugs-extra.version>1.3.9</findbugs-extra.version>
 		<guava.version>16.0</guava.version>
-		<jackson.version>1.9.13</jackson.version>
+		<jackson1.version>1.9.13</jackson1.version>
 		<jacoco.version>0.6.4.201312101107</jacoco.version>
 		<jalopy.version>1.0-alpha-1</jalopy.version>
 		<javadoc.version>2.9.1</javadoc.version>
@@ -742,9 +937,9 @@
 		<pojomatic.version>1.0</pojomatic.version>
 		<site.version>3.2</site.version>
 		<slf4j.version>1.7.5</slf4j.version> <!-- as of 2012-09-17 -->
-		<spring.version>3.2.6.RELEASE</spring.version>
 		<surefire.version>2.16</surefire.version> <!-- as of 2011-04-06 -->
 		<testng.version>6.8.7</testng.version>
+        <start-class>com.disney.jarvis.springboot.App</start-class>
 	</properties>
 
 	<!-- vim: set noexpandtab tabstop=4 shiftwidth=4: -->

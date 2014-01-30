@@ -8,17 +8,12 @@
     <requiredProperty key="project_url">
     	<defaultValue>none</defaultValue>
     </requiredProperty>
-	<requiredProperty key="project_organization">
+	 <requiredProperty key="project_organization">
     	<defaultValue>Jing</defaultValue>
     </requiredProperty>
     
   </requiredProperties>
-  
-
-  <modules>
-    <module id="common" dir="common" name="common" >
-
-    <fileSets>
+  <fileSets>
       <fileSet filtered="true" packaged="true">
           <directory>src/main/java</directory>
           <includes>
@@ -44,6 +39,4 @@
           </includes>
       </fileSet>
      </fileSets>
-    </module>
-  </modules>
 </archetype-descriptor>
