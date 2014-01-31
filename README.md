@@ -26,13 +26,13 @@ This project helps to create a multi-module maven project. It contains the follo
 maven repository: https://github.com/pwangjing/mavenrepository/blob/master/
 
 ##parent project:
-mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/blob/master 	-DarchetypeGroupId=com.archetype -DarchetypeArtifactId=mvn-archetype-parent -DarchetypeVersion=1.0 -DgroupId=<project group id> -DartifactId=&lt;project artifact Id&gt;
+mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/raw/master 	-DarchetypeGroupId=com.archetype -DarchetypeArtifactId=mvn-archetype-parent -DarchetypeVersion=1.0 -DgroupId=<project group id> -DartifactId=&lt;project artifact Id&gt;
 
 ##executable-jar: 
-mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/blob/master  -DarchetypeGroupId=com.archetype -DarchetypeArtifactId=executable-jar -DarchetypeVersion=1.0 -DgroupId=<submodule group id> -DartifactId=&lt;submodule artifact Id&gt;
+mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/raw/master  -DarchetypeGroupId=com.archetype -DarchetypeArtifactId=executable-jar -DarchetypeVersion=1.0 -DgroupId=<submodule group id> -DartifactId=&lt;submodule artifact Id&gt;
 
 ##jpa:
-mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/blob/master -DarchetypeGroupId=com.archetype -DarchetypeArtifactId=jpa -DarchetypeVersion=1.0 -DgroupId=<submodule group id> -DartifactId=&lt;submodule artifact Id&gt;
+mvn archetype:generate -DarchetypeRepository=https://github.com/pwangjing/mavenrepository/raw/master -DarchetypeGroupId=com.archetype -DarchetypeArtifactId=jpa -DarchetypeVersion=1.0 -DgroupId=<submodule group id> -DartifactId=&lt;submodule artifact Id&gt;
 
 
 
