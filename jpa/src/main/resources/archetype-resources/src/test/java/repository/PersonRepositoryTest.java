@@ -1,6 +1,6 @@
 package ${groupId}.repository;
 
-import com.disney.JpaConfiguration;
+import ${groupId}.JpaConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;

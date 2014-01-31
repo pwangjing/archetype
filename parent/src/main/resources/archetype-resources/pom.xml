@@ -83,6 +83,14 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>http://maven.springframework.org/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -314,11 +322,6 @@
                         </dependency>
                         <dependency>
                                 <groupId>org.springframework.boot</groupId>
-                                <artifactId>spring-boot-starter-logging</artifactId>
-                                <version>${spring-boot.version}</version>
-                        </dependency>
-                        <dependency>
-                                <groupId>org.springframework.boot</groupId>
                                 <artifactId>spring-boot-starter-log4j</artifactId>
                                 <version>${spring-boot.version}</version>
                         </dependency>
@@ -340,11 +343,6 @@
                         <dependency>
                                 <groupId>org.springframework.boot</groupId>
                                 <artifactId>spring-boot-starter-shell-remote</artifactId>
-                                <version>${spring-boot.version}</version>
-                        </dependency>
-                        <dependency>
-                                <groupId>org.springframework.boot</groupId>
-                                <artifactId>spring-boot-starter-test</artifactId>
                                 <version>${spring-boot.version}</version>
                         </dependency>
                         <dependency>

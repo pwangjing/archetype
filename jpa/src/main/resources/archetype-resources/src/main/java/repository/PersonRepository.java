@@ -1,6 +1,6 @@
 package ${groupId}.repository;
 
-import com.disney.domain.Person;
+import ${groupId}.domain.Person;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
