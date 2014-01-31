@@ -8,7 +8,7 @@
     <requiredProperty key="project_url">
     	<defaultValue>none</defaultValue>
     </requiredProperty>
-	   <requiredProperty key="project_organization">
+	 <requiredProperty key="project_organization">
     	<defaultValue>Jing</defaultValue>
     </requiredProperty>
     

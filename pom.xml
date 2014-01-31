@@ -18,6 +18,7 @@
 		<module>parent</module>
                 <module>executable-jar</module>
                 <module>jpa</module>
+                <module>restful-service</module>
 	</modules>
 
 	<properties>
