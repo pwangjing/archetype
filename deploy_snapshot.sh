@@ -1,1 +1,1 @@
-mvn -DaltDeploymentRepository=snapshot-repo::default::file:../mavenrepository/snapshots clean deploy
+mvn -DaltDeploymentRepository=release-repo::default::file:/Users/wangj117/projects/myprojects/mvnbuild/mavenrepository/snapshots clean deploy
