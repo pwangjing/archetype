@@ -539,6 +539,7 @@
   				</executions>
 				<configuration>
 					<configLocation>https://github.com/pwangjing/mavenrepository/raw/master/releases/com/archetype/codequality/checkstyle/1.0.0/checkstyle-1.0.0.xml</configLocation>
+					<linkXRef>false</linkXRef>
 				</configuration>
 			</plugin>
 
@@ -593,6 +594,7 @@
 						<ruleset>https://github.com/pwangjing/mavenrepository/raw/master/releases/com/archetype/codequality/pmd/1.0.0/pmd-1.0.0.xml</ruleset>
 					</rulesets>
 					<targetJdk>${java.version}</targetJdk>
+					<linkXRef>false</linkXRef>
 				</configuration>
 			</plugin>
 
